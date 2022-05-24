@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/logo.png')}}">
+    <title>Rekam Data Pasien</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="{{ url_for('static', filename='bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Menu CSS -->
+    <link href="{{ url_for('static', filename='bower_components/sidebar-nav/dist/sidebar-nav.min.css') }}" rel="stylesheet">
+    <!-- animation CSS -->
+    <link href="{{ url_for('static', filename='css/animate.css') }}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <!-- color CSS -->
+    <!-- Randomize between light and dark mode -->
+    <link href="{{ url_for('static', filename='css/darkstyle.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/colors/') }}{{ color }}.css" id="theme" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="fix-header">
+    <!-- ============================================================== -->
+    <!-- Preloader -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+        </svg>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Wrapper -->
+    <!-- ============================================================== -->
+    <div id="wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <nav class="navbar navbar-default navbar-static-top m-b-0">
+            <div class="navbar-header">
+                <div class="top-left-part">
+                    <!-- Logo -->
+                    <a class="logo" href="/">
+                        <!-- Logo icon image, you can use font-icon also --><b>
+                        <!--This is dark logo icon--><img src="{{ url_for('static', filename='images/logo.png') }}" alt="home" class="dark-logo" />
+                        <!--This is light logo icon--><img src="{{ url_for('static', filename='images/logo.png') }}" alt="home" class="light-logo" />
+                     </b>
+                        <!-- Logo text image you can use text also --><span class="hidden-xs">
+                        <!--This is dark logo text--><img src="{{ url_for('static', filename='images/logo-text.png') }}" alt="home" class="dark-logo" /><!--This is light logo text--><img src="{{ url_for('static', filename='images/logo-text.png') }}" alt="home" class="light-logo" />
+                     </span> </a>
+                        
+                </div>
+                <!-- /Logo -->
+                
+                <div class="top-right-part">
+                <a href="/logout" style="margin: 10px 25px;" class="btn btn-warning btn-danger pull-right m-l-20 hidden-xs hidden-sm">LOGOUT</a>
+                </div>
+                
+            </div>
+            <!-- /.navbar-header -->
+            <!-- /.navbar-top-links -->
+            <!-- /.navbar-static-side -->
+        </nav>
+        <!-- End Top Navigation -->
+        <!-- ============================================================== -->
+        <!-- Page Content -->
+        <!-- ============================================================== -->
+        <div id="page-wrapper" >
+            <div class="container-fluid">
+                <div class="row bg-title">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">Rekam Data Pasien</h4>
+                    </div>
+                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                    <a  href="../../mongodb.zip" download="mongodb.zip" class="btn btn-primary pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light">Download MongoDB</a>
+                    <a href="../../mysql.zip" download="mysql.zip" class="btn btn-primary pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light">Download MySQL</a>
+                        <ol class="breadcrumb">
+                            <li><a href="#">Dashboard</a></li>
+                            <li class="active">Rekam Data Pasien</li>
+                        </ol>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                
+                <!-- .row -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel">
+                            <div class="panel-heading">DAFTAR PASIEN 
+                            <a href="/input_data"class="btn btn-success waves-effect waves-light m-r-10">+TAMBAH</a>   
+                        </div>
+                            <div class="table-responsive">
+                                <table class="table table-hover manage-u-table">
+                                    <thead>
+                                        <tr class="text-center">
+                                            <th class="text-center">NO</th>
+                                            <th>NAMA</th>
+                                            <th>PEKERJAAN</th>
+                                            <th>TANGGAL LAHIR</th>
+                                            <th>TANGGAL MASUK</th>
+                                            <th>KATEGORI PENYAKIT</th>
+                                            <th>ATUR DATA</th>
+                                        </tr>
+                                        {% for pasien in seluruh_pasien %}
+                                            <tr>
+                                            <td class="text-center">{{ pasien.id }}</td>
+                                            <td>{{ pasien.nama }}</td>
+                                            <td>{{ pasien.pekerjaan }}</td>
+                                            <td>{{ pasien.tanggal_lahir }}</td>
+                                            <td>{{ pasien.tanggal_masuk }}</td>
+                                            <td>{{ pasien.kategori }}</td>
+                                            <td>
+                                                <a href="/edit_data/{{ pasien.id }}" class="btn btn-info btn-lg m-r-5"><i class="ti-pencil-alt"></i></a>
+                                                <a href="/delete/{{ pasien.id }}" class="btn btn-danger btn-lg m-r-5"><i class="ti-trash"></i></a>
+                                            </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /row -->
+              
+                </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    
+    <script src="{{ url_for('static', filename='bower_components/jquery/dist/jquery.min.js') }}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ url_for('static', filename='bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <!--slimscroll JavaScript -->
+    <script src="{{ url_for('static', filename='js/jquery.slimscroll.js') }}"></script>
+    <!--Wave Effects -->
+    <script src="{{ url_for('static', filename='js/waves.js') }}"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="{{ url_for('static', filename='js/custom.min.js') }}"></script>
+    <!-- jQuery peity -->
+    <script src="{{ url_for('static', filename='bower_components/peity/jquery.peity.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='bower_components/peity/jquery.peity.init.js') }}"></script>
+    <!--Style Switcher -->
+    <script src="{{ url_for('static', filename='bower_components/styleswitcher/jQuery.style.switcher.js') }}"></script>
+</body>
+
+</html>

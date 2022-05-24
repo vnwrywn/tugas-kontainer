@@ -1,0 +1,95 @@
+<!DOCTYPE html>  
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/logo.png') }}">
+<title>Login Akun</title>
+<!-- Bootstrap Core CSS -->
+<link href="{{ url_for('static', filename='bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+<!-- animation CSS -->
+<link href="{{ url_for('static', filename='css/animate.css') }}" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+<!-- color CSS -->
+<link href="{{ url_for('static', filename='css/colors/default.css') }}" id="theme"  rel="stylesheet">
+
+</head>
+<body>
+<!-- Preloader -->
+<div class="preloader">
+  <div class="cssload-speeding-wheel"></div>
+</div>
+
+<section id="wrapper" class="new-login-register">
+  <div class="lg-info-panel">
+  </div>
+  <div class="new-login-box">
+    <div class="white-box">
+      <a href="index.php" class="text-center db"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="Home" /><br/><img src="{{ url_for('static', filename='images/logo-text.png') }}" alt="Home" /></a>
+      <form method="POST" class="form-horizontal new-lg-form" id="loginform" action="login">
+        
+        <div class="form-group  m-t-20">
+          <div class="col-xs-12">
+            <label><h4>Username</h4></label>
+            <input class="form-control" name="username" type="text" required="" placeholder="Username">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-xs-12">
+            <label><h4>Password</h4></label>
+            <input class="form-control" name="password" type="password" required="" placeholder="Password">
+          </div>
+        </div>
+        <div class="form-group text-center m-t-20">
+          <div class="col-xs-12">
+            <input class="btn btn-info btn-lg btn-block btn-rounded text-uppercase" name="submit" value="LOG IN" type="submit"></button>
+          </div>
+        </div>
+        
+      </form>
+    </div>
+  </div>            
+  
+  
+</section>
+<!-- jQuery -->
+<script src="{{ url_for('static', filename='bower_components/jquery/dist/jquery.min.js') }}"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="{{ url_for('static', filename='bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<!-- Menu Plugin JavaScript -->
+<script src="{{ url_for('static', filename='bower_components/sidebar-nav/dist/sidebar-nav.min.js') }}"></script>
+
+<!--slimscroll JavaScript -->
+<script src="{{ url_for('static', filename='js/jquery.slimscroll.js') }}"></script>
+<!--Wave Effects -->
+<script src="{{ url_for('static', filename='js/waves.js') }}"></script>
+<!-- Custom Theme JavaScript -->
+<script src="{{ url_for('static', filename='js/custom.min.js') }}"></script>
+<!--Style Switcher -->
+<script src="{{ url_for('static', filename='bower_components/styleswitcher/jQuery.style.switcher.js') }}"></script>
+<script src="{{ url_for('static', filename='bower_components/toast-master/js/jquery.toast.js') }}"></script>
+<script src="{{ url_for('static', filename='js/toastr.js') }}"></script>
+<script type="text/javascript">
+    if ( window.history.replaceState ) {
+      window.history.replaceState( null, null, window.location.href );
+    }
+    //Alerts
+    $(".myadmin-alert .closed").click(function(event) {
+        $(this).parents(".myadmin-alert").fadeToggle(350);
+        return false;
+    });
+    /* Click to close */
+    $(".myadmin-alert-click").click(function(event) {
+        $(this).fadeToggle(350);
+        return false;
+    });
+    $(".showtop").click(function() {
+        $(".alerttop").fadeToggle(350);
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/logo.png') }}">
+    <title>Input Data</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="{{ url_for('static', filename='bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- animation CSS -->
+    <link href="{{ url_for('static', filename='css/animate.css') }}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='css/darkstyle.css') }}" rel="stylesheet">
+    <!-- color CSS -->
+    <link href="{{ url_for('static', filename='css/colors/megna.css') }}" id="theme" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body class="fix-header">
+    <!-- ============================================================== -->
+    <!-- Preloader -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+        </svg>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Wrapper -->
+    <!-- ============================================================== -->
+    <div id="wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <nav class="navbar navbar-default navbar-static-top m-b-0">
+            <div class="navbar-header">
+                <div class="top-left-part">
+                    <!-- Logo -->
+                    <a class="logo" href="{{ url_for('static', filename='index.php') }}">
+                        <b>
+                        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="home" class="dark-logo" /><!--This is light logo icon--><img src="{{ url_for('static', filename='images/logo.png') }}" alt="home" class="light-logo" />
+                     </b>
+                        <span class="hidden-xs">
+                        <img src="{{ url_for('static', filename='images/logo-text.png') }}" alt="home" class="dark-logo" /><!--This is light logo text--><img src="{{ url_for('static', filename='images/logo-text.png') }}" alt="home" class="light-logo" />
+                     </span> </a>
+                </div>          
+            </div>
+        </nav>
+        <!-- End Top Navigation -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        
+        <!-- ============================================================== -->
+        <!-- Page Content -->
+        <!-- ============================================================== -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row bg-title">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">INPUT REKAM DATA PASIEN</h4> </div>
+                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                        <ol class="breadcrumb">
+                            <li><a href="{{ url_for('static', filename='#') }}">Dashboard</a></li>
+                            <li class="active">Input Data</li>
+                        </ol>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="white-box">
+                            <h3 class="box-title m-b-0">Input Rekam Data Pasien</h3>
+                            <p class="text-muted m-b-30 font-13"> Masukkan data pasien</p>
+                            <div class="row">
+                                <div class="col-sm-12 col-xs-12">
+                                    <form method="POST">
+                                        <div class="form-group">
+                                            <label for="nama">Nama</label>
+                                            <input type="text" class="form-control" name= "nama" id="nama" placeholder="Nama Pasien"> </div>
+        
+                                        <div class="form-group">
+                                            <label for="tanggalLahir">Tanggal Lahir (dd/mm/yyyy)</label>
+                                            <input type="date" class="form-control complex-colorpicker" name="tanggalLahir" id="tanggalLahir" placeholder="Tanggal Lahir"> </div>
+                                        <div class="form-group">
+                                            <label for="tanggalMasuk">Tanggal Masuk (dd/mm/yyyy)</label>
+                                            <input type="date" class="form-control complex-colorpicker" name ="tanggalMasuk" id="tanggalMasuk" placeholder="Tanggal Masuk"> </div>
+                                        <div class="form-group">
+                                            <label for="pekerjaan">Pekerjaan</label>
+                                            <input type="text" class="form-control"name="pekerjaan" id="pekerjaan" placeholder="Pekerjaan Pasien"> </div>
+                                        <div class="form-group">
+                                            <label> Kategori </label>
+                                            <div class="radio">
+                                                <input type="radio" name="kategori" id="kategori1" value="Ringan" >
+                                                <label for="kategori1"> Ringan </label>
+                                            </div>
+                                            <div class="radio">
+                                                <input type="radio" name="kategori" id="kategori2" value="Sedang" >
+                                                <label for="kategori2"> Sedang </label>
+                                            </div>
+                                            <div class="radio">
+                                                <input type="radio" name="kategori" id="kategori3" value="Berat" >
+                                                <label for="kategori3"> Berat </label>
+                                            </div>
+                                        </div>
+                                        <input formaction="/input_data" type="submit" class="btn btn-lg btn-success m-r-10" value="Submit">
+                                        <input formaction="rekam-data.php" type="submit" class="btn btn-lg btn-inverse" value="Cancel">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+    
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    </div>
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    <script src="{{ url_for('static', filename='bower_components/jquery/dist/jquery.min.js') }}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ url_for('static', filename='bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <!-- Menu Plugin JavaScript -->
+    <script src="{{ url_for('static', filename='bower_components/sidebar-nav/dist/sidebar-nav.min.js') }}"></script>
+    <!--slimscroll JavaScript -->
+    <script src="{{ url_for('static', filename='js/jquery.slimscroll.js') }}"></script>
+    <!--Wave Effects -->
+    <script src="{{ url_for('static', filename='js/waves.js') }}"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="{{ url_for('static', filename='js/custom.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jasny-bootstrap.js') }}"></script>
+    <!--Style Switcher -->
+    <script src="{{ url_for('static', filename='bower_components/styleswitcher/jQuery.style.switcher.js') }}"></script>
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+<tr>
+<td class="text-center">'.$nomor.'</td>
+<td>'.$baris['nama'].'</td>
+<td>'.$baris['pekerjaan'].'</td>
+<td>'.$baris['tanggalLahir'].'</td>
+<td>'.$baris['tanggalMasuk'].'</td>
+<td>'.$baris['kategori'].'</td>
+<td>
+<a href=edit-data.php?id='.$baris['nomor'].' class="btn btn-info btn-lg m-r-5"><i class="ti-pencil-alt"></i></a>
+<a href=delete.php?id='.$baris['nomor'].' class="btn btn-danger btn-lg m-r-5" onclick="return confirm(\'Apakah anda yakin menghapus entri?\')"><i class="ti-trash"></i></a>
+</td>
+</tr>
