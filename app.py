@@ -2,6 +2,7 @@ from flask import Flask, render_template, url_for, request, redirect, session, r
 from flask_sqlalchemy import SQLAlchemy
 from random import randint
 from datetime import datetime
+import os
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Database.db'
@@ -120,4 +121,5 @@ def update(id):
 		return render_template('update.html', pasien=data)
 
 if __name__ == "__main__":
-	app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=True, host='0.0.0.0', port=port)
